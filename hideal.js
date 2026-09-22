@@ -14,12 +14,7 @@ const FORM_ENDPOINT = "";
 
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* ── email + year, written from one place ───────────────── */
-document.querySelectorAll("[data-email]").forEach((el) => {
-  el.setAttribute("href", "mailto:" + STUDIO_EMAIL);
-  if (el.textContent.trim().includes("@")) el.textContent = STUDIO_EMAIL;
-});
-
+/* ── year, written from one place ────────────────────────── */
 document.querySelectorAll("[data-year]").forEach((el) => {
   el.textContent = String(new Date().getFullYear());
 });

@@ -1,7 +1,8 @@
 # Hideal — website
 
-> Design D (`v4.*`) is the production site and is branded **Hideal**.
-> Designs A, B and C are earlier experiments and still say Cozy Studio.
+> **`index.html` is the live site**, branded **Hideal** (loads `hideal.css` / `hideal.js`).
+> `original.html`, `studio.html` and `v3.html` are earlier Cozy Studio experiments,
+> kept for reference and linked only from each other.
 
 Static site. No build step, no dependencies.
 
@@ -11,10 +12,10 @@ delete any one of them without touching the others.
 
 | | Files | Look |
 |---|---|---|
-| **A — original** (`index.html`) | `index.html`, `styles.css`, `script.js` | Warm cream ground, serif display face, blue accent, split hero with a product mockup |
+| **A — original** (`original.html`) | `index.html`, `styles.css`, `script.js` | Warm cream ground, serif display face, blue accent, split hero with a product mockup |
 | **B — alternate** (`studio.html`) | `studio.html`, `studio.css`, `studio.js` | Off-white ground, hairline grid with crosshair marks, near-black ink, one hot-orange accent, centred hero |
 | **C — third** (`v3.html`) | `v3.html`, `v3.css`, `v3.js` | Structure and visual language modelled on [family.co](https://family.co): pure white ground, huge centred display headings, pill buttons, floating pastel confetti, portrait device frames bleeding out of soft pastel panels |
-| **D — fourth** (`v4.html`) | `v4.html`, `v4.css`, `v4.js` | Structure and visual language modelled on [agentation.com](https://www.agentation.com): a documentation manual — warm off-white ground, sticky top bar, one 576px reading column, dense 13/14px Inter with the key phrase in red, hairlines instead of boxes, and blue links |
+| **D — fourth** (`index.html`) | `index.html`, `hideal.css`, `hideal.js` | Structure and visual language modelled on [agentation.com](https://www.agentation.com): a documentation manual — warm off-white ground, sticky top bar, one 576px reading column, dense 13/14px Inter with the key phrase in red, hairlines instead of boxes, and blue links |
 
 Each page links to the others from its footer ("Original design" / "Alternate design" /
 "Third design" / "Fourth design"). Delete those lines if you don't want them cross-linked.
@@ -41,7 +42,7 @@ python3 -m http.server 4000
 
 ## 1. Set your email address
 
-Open `script.js` (design A), `studio.js` (design B), `v3.js` (design C) or `v4.js`
+Open `script.js` (design A), `studio.js` (design B), `v3.js` (design C) or `hideal.js`
 (design D). All four take the same two settings at the top of the file — if you're running more than one
 page, set them in each:
 
@@ -106,26 +107,26 @@ The form already includes a hidden honeypot field that silently absorbs naive bo
 | Plan card | `.plan` — an outer card whose 5px padding frames a tinted inset `.plan__panel` holding the checklist, with the figure below it on the card's own ground. The footer's 16px side padding matches the panel's, so the label lines up with the panel title and the button with the panel's right edge. Structure modelled on [wireframe.co/pricing](https://wireframe.co/pricing) |
 | Contact form | `#contact` — same three fields, validation, honeypot and delivery paths as design A, wrapped in the closing "Explore Cozy" CTA rather than its own section |
 
-### Design D only (`v4.html` / `v4.css`)
+### Design D only (`index.html` / `hideal.css`)
 
 | What | Where |
 |---|---|
-| Palette, fonts, metrics | `:root` block at the top of `v4.css` — `--col` is the 576px reading column, `--rail` the sidebar. One grey, `--muted`, covers every piece of secondary text; nothing on the page is set below 12px |
-| Email address | `STUDIO_EMAIL` at the top of `v4.js` — it writes every `data-email` link and the form's mailto fallback |
-| Nav items | `<header class="nav">` in `v4.html` — a sticky top bar with three links: About (goes to the deliverables), Pricing and Get in touch. Anything carrying `data-spy="<section id>"` is tracked by the scroll-spy in `v4.js` |
+| Palette, fonts, metrics | `:root` block at the top of `hideal.css` — `--col` is the 576px reading column, `--rail` the sidebar. One grey, `--muted`, covers every piece of secondary text; nothing on the page is set below 12px |
+| Email address | `STUDIO_EMAIL` at the top of `hideal.js` — it writes every `data-email` link and the form's mailto fallback |
+| Nav items | `<header class="nav">` in `index.html` — a sticky top bar with three links: About (goes to the deliverables), Pricing and Get in touch. Anything carrying `data-spy="<section id>"` is tracked by the scroll-spy in `hideal.js` |
 | Hero call to action | `<div class="cta">` — the button reuses the shared `.btn` style, so it stays in step with the form's submit |
-| Smooth anchor scrolling | `scroll-behavior:smooth` on `html` in `v4.css`, inside a `prefers-reduced-motion:no-preference` guard; `scroll-margin-top` on `.doc > section` keeps targets clear of the sticky top bar |
+| Smooth anchor scrolling | `scroll-behavior:smooth` on `html` in `hideal.css`, inside a `prefers-reduced-motion:no-preference` guard; `scroll-margin-top` on `.doc > section` keeps targets clear of the sticky top bar |
 | Availability line | `<span class="avail">` beside the "Let's chat" button in the hero |
 | The accented phrase in the title | `<span class="hl">` in the `<h1>`; the colour is `--accent` |
 | Product mockup | the `.win` block — chrome bar, rail, header buttons, stat cards, chart and table rows, drawn in CSS with no images. Vocabulary: `.sk` skeleton bars, `.ui--ghost` / `.ui--cta` buttons, `.tile` + `.chip` stat cards, `.row` + `.av` + `.status` table rows |
-| The demo's build animation | the `build` keyframes in `v4.css`. Every piece of the mockup shares one animation on one clock (`--dur`, 16s); each has a `--d` saying when it arrives. Retime everything from `--dur`, or move one piece with its `--d`. The chart's stroke draws separately via `draw-line` |
+| The demo's build animation | the `build` keyframes in `hideal.css`. Every piece of the mockup shares one animation on one clock (`--dur`, 16s); each has a `--d` saying when it arrives. Retime everything from `--dur`, or move one piece with its `--d`. The chart's stroke draws separately via `draw-line` |
 | The assistant panel | `<aside class="ai">` inside the mockup — 20% of the width, sliding in from the right. Its beats are written as plain percentages of `--dur` rather than `--d` offsets, so the times read directly: panel in, prompt typed (`ai-type`, stepped so it looks like characters), sent (`ai-send`), thinking (`ai-thinking`), reply streams (`ai-line`) |
 | What the prompt changes | `ai-flash` rings the chart and `.row--new` lands tinted in the table (`ai-row`, `ai-row-tint`). The new row holds its space from the start, so the dashboard never reflows when it appears. Move these two windows together with the reply's, or the cause-and-effect stops reading |
-| FAQ open/close | `slide()` in `v4.js`. `<details>` has no transition of its own, so the height is animated by hand — including the body's bottom padding, or a border-box height of 0 still leaves that padding behind and the collapse visibly stalls |
+| FAQ open/close | `slide()` in `hideal.js`. `<details>` has no transition of its own, so the height is animated by hand — including the body's bottom padding, or a border-box height of 0 still leaves that padding behind and the collapse visibly stalls |
 | List rules in `.doc` | `.doc ol` / `.doc ul` / `.doc li` are all (0,1,1) and will beat a bare class like `.cards` or `.card`, silently reimposing the 16px indent, the disc marker and 2px item padding. Any list styled by class inside the column must be scoped `.doc .thing` to win — and any media-query override of it needs the same prefix, since media queries add no specificity |
 | Deliverable cards | `<ul class="cards">` — a tinted panel per deliverable, each holding a small animation drawn in the same skeleton vocabulary as the hero. One clock (`--cdur`, 11s); `--cd` on each `<li>` staggers the four so the grid cascades, `--d` on each piece orders it within its panel. **If you change either, keep the rule:** everything must finish exiting before the first card restarts, so the tail after `pop`'s 78% (22% of `--cdur`) has to be longer than the largest `--cd + --d` in the grid. Get that wrong and the last card is still leaving when the first one comes back. The panels are `.wire` (dashed blocks), `.sys` (tokens then components), `.hifi` (the top-left corner of a dashboard, zoomed so it crops off the panel's right and bottom, flipping from blocked-out to finished UI at 32–43% of the clock via `hf-block` / `hf-ink` / `hf-btn` / `hf-logo` / `hf-navon` / `hf-appear`) and `.proto` (a tap, a drawn link, the next screen) |
 | Section order | hero, mockup, deliverables, process, pricing, contact, FAQ, cross-links |
-| Where the nav tightens | the `max-width:560px` media query in `v4.css` closes the gaps so three links still fit |
+| Where the nav tightens | the `max-width:560px` media query in `hideal.css` closes the gaps so three links still fit |
 
 ## 4. Deploying
 
