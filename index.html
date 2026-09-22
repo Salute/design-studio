@@ -374,7 +374,10 @@
       <li>$6,000 a month, cancel anytime</li>
     </ul>
 
-    <form class="cform" id="contact-form" novalidate>
+    <form class="cform" id="contact-form" name="contact" method="POST"
+          data-netlify="true" data-netlify-honeypot="company_website" novalidate>
+      <!-- Netlify matches the submission to the form by this name -->
+      <input type="hidden" name="form-name" value="contact" />
       <div class="cform__row">
         <div class="field">
           <label for="name">Your name <span aria-hidden="true">*</span></label>

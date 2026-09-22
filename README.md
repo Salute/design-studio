@@ -54,6 +54,30 @@ const FORM_ENDPOINT = "";
 `STUDIO_EMAIL` is used by the contact form, the footer link and the "Prefer email?"
 line — change it in this one place and all three update.
 
+
+### Netlify Forms (how it is wired now)
+
+The form posts to the site root as `application/x-www-form-urlencoded`
+with a `form-name` field. Netlify **does not accept JSON**, which is why
+the POST is not JSON like a Formspree-style endpoint would be.
+
+Three things have to line up or submissions vanish silently:
+
+1. `<form name="contact" method="POST" data-netlify="true">` in the
+   static HTML — Netlify finds forms by parsing the deployed markup.
+2. `<input type="hidden" name="form-name" value="contact">` inside it.
+3. `NETLIFY_FORM` in `hideal.js` set to the same string.
+
+It only works on a Netlify deploy. On localhost or GitHub Pages the POST
+404s and the visitor sees the error message.
+
+To switch to Formspree/Basin instead: set `FORM_ENDPOINT` to their URL
+and `NETLIFY_FORM` to `""`. The body stays urlencoded, which they accept.
+
+Email notifications are configured in the Netlify UI, not in this repo:
+Site configuration → Forms → Form notifications → add an email
+notification. Free tier allows 100 submissions a month.
+
 ## 2. Make the contact form deliver
 
 **As shipped (`FORM_ENDPOINT = ""`)** the form validates the input, then opens the

@@ -5,12 +5,22 @@
    ============================================================ */
 
 /* ── the only settings you need to touch ────────────────────
-   FORM_ENDPOINT: leave "" and the form opens the visitor's mail
-   client with everything filled in. Paste a JSON endpoint
-   (Formspree, Basin, Getform, Netlify…) for real submissions.
+   FORM_ENDPOINT  ""  the form opens the visitor's mail client with
+                      everything filled in (needs no hosting setup,
+                      but depends on them having a mail client).
+                  "/" Netlify Forms. Netlify reads the submission
+                      from the site itself, so the endpoint is just
+                      the site root. Only works once deployed to
+                      Netlify — it does nothing on localhost or on
+                      GitHub Pages.
+                  url Formspree / Basin / Getform — paste theirs.
+
+   NETLIFY_FORM   must match the form's name attribute in the HTML.
+                  Set it to "" for any non-Netlify endpoint.
    ───────────────────────────────────────────────────────── */
 const STUDIO_EMAIL  = "oguzhannakyoll+design@gmail.com";
-const FORM_ENDPOINT = "";
+const FORM_ENDPOINT = "/";
+const NETLIFY_FORM  = "contact";
 
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -246,10 +256,17 @@ form.addEventListener("submit", async (e) => {
   submitBtn.textContent = "Sending…";
 
   try {
+    /* Netlify Forms only reads form-urlencoded bodies, never JSON.
+       Formspree, Basin and Getform accept urlencoded too, so this
+       one shape works for all of them. */
+    const payload = new URLSearchParams(data);
+    if (NETLIFY_FORM) payload.set("form-name", NETLIFY_FORM);
+    else payload.set("_subject", subject);
+
     const res = await fetch(FORM_ENDPOINT, {
       method: "POST",
-      headers: { Accept: "application/json", "Content-Type": "application/json" },
-      body: JSON.stringify({ ...data, _subject: subject }),
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: payload.toString(),
     });
     if (!res.ok) throw new Error("Bad response " + res.status);
 
