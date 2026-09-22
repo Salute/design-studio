@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hideal: Product design for B2B SaaS</title>
+<meta name="description" content="Hideal is a product design studio for B2B SaaS. We deliver wireframes, design systems, hi-fi UI and clickable prototypes for dashboards and complex tools." />
+<meta name="theme-color" content="#FDFDFC" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Hideal: Product design for B2B SaaS" />
+<meta property="og:description" content="Wireframes, design systems, hi-fi UI and prototypes for dashboards and complex B2B tools." />
+<meta property="og:image" content="assets/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="assets/hideal-mark.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="v4.css" />
+</head>
+<body>
+
+<a class="skip" href="#doc">Skip to content</a>
+
+<!-- the logo's target: first thing in the document, so it lands at 0 -->
+<span id="top"></span>
+
+<!-- ─────────────────────  NAV  ─────────────────────
+     One bar across the top, its contents aligned to the
+     same 576px column as the page body.
+     ─────────────────────────────────────────────── -->
+<header class="nav">
+  <div class="nav__in">
+    <a class="nav__logo" href="#top" aria-label="Hideal, home">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect width="32" height="32" rx="10" fill="currentColor"/>
+        <path d="M10 9h3.4v5.4h5.2V9H22v14h-3.4v-5.4h-5.2V23H10z" fill="#FDFDFC"/>
+      </svg>
+      <span>Hideal</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Sections">
+      <a class="nav__link" href="#deliverables" data-spy="deliverables">About</a>
+      <a class="nav__link" href="#pricing" data-spy="pricing">Pricing</a>
+      <a class="nav__link" href="#contact" data-spy="contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<article class="doc" id="doc">
+
+  <!-- ─────────────────────  HEADER  ───────────────────── -->
+  <header class="head">
+    <div class="head__title">
+      <h1>
+        Product design for
+        <span class="hl">B2B SaaS</span>
+        companies.
+      </h1>
+    </div>
+  </header>
+
+  <p class="lede">
+    Dashboards, admin tools and the data-heavy screens your customers live in.
+    Wireframes through to clickable prototypes, for a flat monthly fee.
+  </p>
+
+  <div class="cta">
+    <a class="btn" href="#contact" data-cta>Let's chat</a>
+    <span class="avail">
+      <span class="avail__dot" aria-hidden="true"></span>
+      <span id="availability">2 spots left for September</span>
+    </span>
+  </div>
+
+  <!-- ─────────────────────  DEMO  ─────────────────────
+       An abstract product screen, drawn in CSS and SVG.
+       It builds itself piece by piece on a loop; every moving
+       part is CSS, sharing the one --dur clock.
+       ───────────────────────────────────────────────── -->
+  <div class="demo">
+    <div class="win">
+      <div class="win__bar" aria-hidden="true">
+        <span class="win__dot"></span><span class="win__dot"></span><span class="win__dot"></span>
+        <span class="win__url">app.yourproduct.com</span>
+      </div>
+
+      <div class="win__body" aria-hidden="true">
+        <aside class="win__rail">
+          <span class="sk sk--dot"></span>
+          <span class="sk sk--nav is-on"></span>
+          <span class="sk sk--nav"></span>
+          <span class="sk sk--nav"></span>
+          <span class="sk sk--nav"></span>
+        </aside>
+
+        <div class="win__main">
+          <div class="win__head">
+            <span class="sk sk--title"></span>
+            <span class="ui ui--ghost"></span>
+            <span class="ui ui--cta"></span>
+          </div>
+
+          <div class="win__tiles">
+            <div class="tile">
+              <span class="sk"></span>
+              <span class="tile__figure"><span class="sk sk--big"></span><span class="chip"></span></span>
+            </div>
+            <div class="tile">
+              <span class="sk"></span>
+              <span class="tile__figure"><span class="sk sk--big"></span><span class="chip"></span></span>
+            </div>
+            <div class="tile">
+              <span class="sk"></span>
+              <span class="tile__figure"><span class="sk sk--big"></span><span class="chip"></span></span>
+            </div>
+          </div>
+
+          <div class="win__chart">
+            <span class="flash"></span>
+            <svg viewBox="0 0 320 110" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="v4g" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#2480ED" stop-opacity=".16"/>
+                  <stop offset="100%" stop-color="#2480ED" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path class="area" d="M0,86 C34,86 44,52 74,52 C104,52 112,74 142,68 C176,61 184,26 214,26 C244,26 254,48 284,42 C304,38 312,30 320,28 L320,110 L0,110 Z" fill="url(#v4g)"/>
+              <path class="line" d="M0,86 C34,86 44,52 74,52 C104,52 112,74 142,68 C176,61 184,26 214,26 C244,26 254,48 284,42 C304,38 312,30 320,28" fill="none" stroke="#2480ED" stroke-opacity=".5" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <div class="win__rows">
+            <div class="row"><span class="av"></span><span class="sk"></span><span class="status"></span></div>
+            <div class="row"><span class="av"></span><span class="sk"></span><span class="status status--alt"></span></div>
+            <div class="row"><span class="av"></span><span class="sk"></span><span class="status"></span></div>
+            <!-- what the prompt adds; it holds its space from the start
+                 so the dashboard never reflows when it arrives -->
+            <div class="row row--new"><span class="av"></span><span class="sk"></span><span class="status"></span></div>
+          </div>
+        </div>
+
+        <!-- the assistant: slides in over the right edge, a prompt is
+             typed and sent, the reply streams, and the dashboard changes -->
+        <aside class="ai">
+          <div class="ai__head">
+            <span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.6c.55 4.9 3.9 8.25 8.8 8.8-4.9.55-8.25 3.9-8.8 8.8-.55-4.9-3.9-8.25-8.8-8.8 4.9-.55 8.25-3.9 8.8-8.8Z"/></svg></span>
+            <span class="sk ai__title"></span>
+            <span class="ai__close"></span>
+          </div>
+
+          <div class="ai__thread">
+            <div class="ai__msg"></div>
+
+            <div class="ai__dots"><span></span><span></span><span></span></div>
+
+            <div class="ai__reply">
+              <span class="spark spark--sm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.6c.55 4.9 3.9 8.25 8.8 8.8-4.9.55-8.25 3.9-8.8 8.8-.55-4.9-3.9-8.25-8.8-8.8 4.9-.55 8.25-3.9 8.8-8.8Z"/></svg></span>
+              <span class="ai__lines">
+                <span class="ai__line"></span>
+                <span class="ai__line" style="--d:.22s"></span>
+                <span class="ai__line" style="--d:.44s"></span>
+              </span>
+            </div>
+          </div>
+
+          <div class="ai__input">
+            <span class="ai__typed"></span>
+            <span class="ai__caret"></span>
+            <span class="ai__send"></span>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────  DELIVERABLES  ───────────────────── -->
+  <section id="deliverables">
+    <h2>Deliverables <span class="tag">every project</span></h2>
+    <p>Every project includes all four. You always know what you're getting.</p>
+
+    <ul class="cards">
+
+      <!-- Wireframes: blocks getting blocked out, dashed like a wireframe -->
+      <li class="card" style="--cd:0s">
+        <div class="card__art" aria-hidden="true">
+          <span class="art wire">
+            <span class="wf" style="--x:0;--y:0;--w:100%;--h:13%;--d:0s"></span>
+            <span class="wf" style="--x:0;--y:20%;--w:26%;--h:80%;--d:.16s"></span>
+            <span class="wf" style="--x:31%;--y:20%;--w:69%;--h:33%;--d:.32s"></span>
+            <span class="wf" style="--x:31%;--y:60%;--w:32%;--h:40%;--d:.48s"></span>
+            <span class="wf" style="--x:68%;--y:60%;--w:32%;--h:40%;--d:.64s"></span>
+          </span>
+        </div>
+        <h3>Wireframes</h3>
+        <p>Layout and structure for every screen, before any visual design.</p>
+      </li>
+
+      <!-- Design system: tokens land, then the components built from them -->
+      <li class="card" style="--cd:.4s">
+        <div class="card__art" aria-hidden="true">
+          <span class="art sys">
+            <span class="sys__row">
+              <span class="tok" style="--c:#E5484D;--d:0s"></span>
+              <span class="tok" style="--c:#2480ED;--d:.1s"></span>
+              <span class="tok" style="--c:#2A9D63;--d:.2s"></span>
+              <span class="tok" style="--c:rgba(0,0,0,.5);--d:.3s"></span>
+              <span class="tok" style="--c:rgba(0,0,0,.16);--d:.4s"></span>
+            </span>
+            <span class="sys__row sys__row--stack">
+              <span class="cmp" style="--d:.58s"></span>
+              <span class="cmp cmp--mid" style="--d:.7s"></span>
+              <span class="cmp cmp--pill" style="--d:.82s"></span>
+            </span>
+          </span>
+        </div>
+        <h3>Design system</h3>
+        <p>Tokens, components and rules in Figma, built to match your code.</p>
+      </li>
+
+      <!-- Hi-fi UI: the grey blocks take on real colour -->
+      <li class="card" style="--cd:.8s">
+        <div class="card__art" aria-hidden="true">
+          <!-- the top-left corner of a dashboard, zoomed in and cropped:
+               it starts blocked out and turns into finished UI -->
+          <span class="hifi">
+            <span class="hifi__app">
+              <span class="hifi__rail">
+                <span class="hifi__logo"></span>
+                <span class="hifi__nav hifi__nav--on"></span>
+                <span class="hifi__nav"></span>
+                <span class="hifi__nav"></span>
+              </span>
+
+              <span class="hifi__main">
+                <span class="hifi__head">
+                  <span class="hifi__title"></span>
+                  <span class="hifi__btn"></span>
+                </span>
+
+                <span class="hifi__tiles">
+                  <span class="hifi__tile">
+                    <span class="hifi__bar"></span>
+                    <span class="hifi__figure"></span>
+                    <span class="hifi__chip"></span>
+                  </span>
+                  <span class="hifi__tile">
+                    <span class="hifi__bar"></span>
+                    <span class="hifi__figure"></span>
+                    <span class="hifi__chip"></span>
+                  </span>
+                </span>
+
+                <span class="hifi__chart">
+                  <svg viewBox="0 0 200 60" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="hfg" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#2480ED" stop-opacity=".26"/>
+                        <stop offset="100%" stop-color="#2480ED" stop-opacity="0"/>
+                      </linearGradient>
+                    </defs>
+                    <path class="hifi__area" d="M0,46 C22,46 30,26 48,26 C66,26 72,38 92,35 C114,31 120,12 140,12 C160,12 166,24 186,21 C194,20 197,16 200,15 L200,60 L0,60 Z" fill="url(#hfg)"/>
+                    <path class="hifi__line" d="M0,46 C22,46 30,26 48,26 C66,26 72,38 92,35 C114,31 120,12 140,12 C160,12 166,24 186,21 C194,20 197,16 200,15" fill="none" stroke="#2480ED" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </span>
+            </span>
+          </span>
+        </div>
+        <h3>Hi-fi UI</h3>
+        <p>Finished screens with real data, at the density your users actually see.</p>
+      </li>
+
+      <!-- Prototype: a tap on one screen, a link drawn to the next -->
+      <li class="card" style="--cd:1.2s">
+        <div class="card__art" aria-hidden="true">
+          <span class="art proto">
+            <span class="fr fr--a" style="--d:0s"></span>
+            <span class="tap"></span>
+            <svg class="proto__link" viewBox="0 0 100 12" preserveAspectRatio="none">
+              <path d="M2 6 H88 M80 1.6 L88.5 6 L80 10.4" />
+            </svg>
+            <span class="fr fr--b" style="--d:.9s"></span>
+          </span>
+        </div>
+        <h3>Prototype</h3>
+        <p>A clickable prototype you can test with users or demo in a sales call.</p>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ─────────────────────  PROCESS  ───────────────────── -->
+  <section id="process" class="is-ruled">
+    <h2>How it works</h2>
+    <p>
+      You add requests, we work through them one at a time.
+    </p>
+
+    <ol class="steps">
+      <li>
+        <h3>Get started</h3>
+        <p>
+          You subscribe, give us product access and add us to Slack. We spend the
+          first day learning your product.
+        </p>
+      </li>
+      <li>
+        <h3>Add your requests</h3>
+        <p>
+          Put what you need on a shared board. Reorder it whenever your priorities
+          change.
+        </p>
+      </li>
+      <li>
+        <h3>We deliver</h3>
+        <p>
+          One request at a time. Bigger ones get split into pieces you can review
+          daily.
+        </p>
+      </li>
+      <li>
+        <h3>Review or pause</h3>
+        <p>
+          Revisions are included. Pause the subscription any month you don't need us,
+          and pick it up later.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ─────────────────────  PRICING  ───────────────────── -->
+  <section id="pricing" class="is-ruled">
+    <h2>One plan</h2>
+    <p>
+      No guesswork on pricing and no scoping calls. Cancel or pause whenever you like.
+      One senior designer working on your product, month to month.
+    </p>
+
+    <!-- the plan as a card: a tinted panel holding what the price
+         covers, with the figure and the action below it -->
+    <div class="plan">
+      <div class="plan__panel">
+        <h3 class="plan__title">Month to month</h3>
+        <ul class="plan__list">
+          <li><svg class="plan__check" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9"/><path d="M5.9 10.4 8.6 13l5.5-5.7"/></svg>No setup fee</li>
+          <li><svg class="plan__check" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9"/><path d="M5.9 10.4 8.6 13l5.5-5.7"/></svg>Cancel anytime</li>
+        </ul>
+      </div>
+
+      <div class="plan__foot">
+        <div class="plan__sum">
+          <span class="plan__label">The same price every month</span>
+          <span class="plan__price">$6,000<span class="plan__per">/ month</span></span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ─────────────────────  CONTACT  ───────────────────── -->
+  <section id="contact" class="is-ruled">
+    <h2>Get in touch</h2>
+    <p>
+      Tell us about your product. We reply to every enquiry within one business day.
+    </p>
+
+    <ul>
+      <li>Reply within 1 business day</li>
+      <li>A 30-minute call</li>
+      <li>$6,000 a month, cancel anytime</li>
+    </ul>
+
+    <form class="cform" id="contact-form" novalidate>
+      <div class="cform__row">
+        <div class="field">
+          <label for="name">Your name <span aria-hidden="true">*</span></label>
+          <input type="text" id="name" name="name" autocomplete="name" placeholder="Alex Rivera" required />
+          <p class="field__err" data-err-for="name"></p>
+        </div>
+        <div class="field">
+          <label for="email">Work email <span aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="alex@company.com" required />
+          <p class="field__err" data-err-for="email"></p>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="company">Company <span aria-hidden="true">*</span></label>
+        <input type="text" id="company" name="company" autocomplete="organization" placeholder="Company name" required />
+        <p class="field__err" data-err-for="company"></p>
+      </div>
+
+      <!-- honeypot: hidden from humans, catches naive bots -->
+      <div class="hp" aria-hidden="true">
+        <label for="company_website">Leave this field empty</label>
+        <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <div class="cform__foot">
+        <p class="cform__note">We'll only use this to reply to you.</p>
+        <button type="submit" class="btn" id="submit-btn">Send enquiry</button>
+      </div>
+
+      <p class="cform__status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+
+    <p class="direct">
+      Prefer email? <a href="mailto:hello@hideal.com" data-email>hello@hideal.com</a>
+    </p>
+  </section>
+
+  <!-- ─────────────────────  FAQ  ───────────────────── -->
+  <section id="faq" class="is-ruled">
+    <h2>Common questions</h2>
+
+    <details class="qa">
+      <summary>Do you work with early-stage teams?</summary>
+      <div class="qa__body">
+        <p>
+          Yes. Pre-seed to Series B is our focus. If you're pre-product, we'll start
+          with one core flow.
+        </p>
+      </div>
+    </details>
+
+    <details class="qa">
+      <summary>Can you work with our existing design system?</summary>
+      <div class="qa__body">
+        <p>
+          Yes. We'll audit what you have, extend it where it's thin and fix the parts
+          that have drifted from your code.
+        </p>
+      </div>
+    </details>
+
+    <details class="qa">
+      <summary>What do you need from us?</summary>
+      <div class="qa__body">
+        <p>
+          Product access, one person who can make decisions, and about two hours a week
+          for reviews.
+        </p>
+      </div>
+    </details>
+
+    <details class="qa">
+      <summary>Do you write front-end code?</summary>
+      <div class="qa__body">
+        <p>
+          No. We design to your stack, write specs your engineers can build from, and
+          stay available during the build.
+        </p>
+      </div>
+    </details>
+
+    <details class="qa">
+      <summary>How do we start?</summary>
+      <div class="qa__body">
+        <p>
+          Fill in the form above. We reply within one business day and set up a
+          30-minute call.
+        </p>
+      </div>
+    </details>
+  </section>
+
+  <footer class="foot">
+    <p>Product design for B2B SaaS companies.</p>
+    <p class="foot__meta">
+      <a href="#" data-social="linkedin">LinkedIn</a>
+      <span aria-hidden="true">·</span>
+      <a href="#" data-social="x">X</a>
+      <span aria-hidden="true">·</span>
+      <span>© <span data-year>2026</span> Hideal</span>
+    </p>
+  </footer>
+
+</article>
+</main>
+
+<a class="fab" href="#contact" aria-label="Start a project">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/>
+  </svg>
+</a>
+
+<script src="v4.js"></script>
+</body>
+</html>

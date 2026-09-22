@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cozy Studio — Product design for B2B SaaS</title>
+<meta name="description" content="Cozy Studio is a product design studio for B2B SaaS. We deliver wireframes, design systems, hi-fi UI and clickable prototypes for dashboards and complex tools." />
+<meta name="theme-color" content="#FFFFFF" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Cozy Studio — Product design for B2B SaaS" />
+<meta property="og:description" content="Wireframes, design systems, hi-fi UI and prototypes for dashboards and complex B2B tools." />
+<meta property="og:image" content="assets/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ─────────────────────────  NAV  ───────────────────────── -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="logo" href="#top" aria-label="Cozy Studio, home">
+      <span class="logo__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="10" fill="currentColor"/><path d="M16 8.5c-4.1 0-7.5 3.4-7.5 7.5s3.4 7.5 7.5 7.5c2.5 0 4.7-1.2 6-3.1l-3.1-1.9a4 4 0 1 1 0-5l3.1-1.9a7.5 7.5 0 0 0-6-3.1Z" fill="#FFFFFF"/></svg>
+      </span>
+      <span class="logo__text">Cozy<span class="logo__thin">Studio</span></span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#engage">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a class="btn btn--primary" href="#contact">Enquire</a>
+      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#engage">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact" class="mobile-menu__cta">Enquire →</a>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ─────────────────────────  HERO  ───────────────────────── -->
+<section class="hero">
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="wrap hero__inner">
+
+    <div class="hero__copy">
+      <p class="badge reveal">
+        <span class="badge__dot" aria-hidden="true"></span>
+        <span id="availability">2 spots left for September</span>
+      </p>
+
+      <h1 class="reveal" style="--d:60ms">
+        Product design for <em>B2B SaaS</em> companies.
+      </h1>
+
+      <p class="lede reveal" style="--d:120ms">
+        Dashboards, admin tools and the data-heavy screens your customers live in —
+        wireframes through to clickable prototypes, for a flat monthly fee.
+      </p>
+
+      <div class="hero__cta reveal" style="--d:180ms">
+        <a class="btn btn--primary btn--lg" href="#contact">Start a project</a>
+        <a class="btn btn--ghost btn--lg" href="#services">See what you get →</a>
+      </div>
+
+    </div>
+
+    <!-- Abstract product mockup, drawn in CSS/SVG (no fake client work) -->
+    <div class="hero__art reveal" style="--d:300ms" aria-hidden="true">
+      <div class="mock">
+        <div class="mock__bar">
+          <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
+        </div>
+        <div class="mock__body">
+          <aside class="mock__side">
+            <div class="mock__logo"></div>
+            <span class="mock__nav is-active"></span>
+            <span class="mock__nav"></span>
+            <span class="mock__nav"></span>
+            <span class="mock__nav"></span>
+            <span class="mock__nav mock__nav--short"></span>
+          </aside>
+          <div class="mock__main">
+            <div class="mock__head">
+              <span class="mock__title"></span>
+              <span class="mock__pill"></span>
+            </div>
+            <div class="mock__stats">
+              <div class="mock__stat"><i></i><b></b></div>
+              <div class="mock__stat"><i></i><b></b></div>
+              <div class="mock__stat"><i></i><b></b></div>
+            </div>
+            <div class="mock__chart">
+              <svg viewBox="0 0 320 110" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="var(--accent)" stop-opacity=".28"/>
+                    <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path class="mock__area" d="M0,86 C34,86 44,52 74,52 C104,52 112,74 142,68 C176,61 184,26 214,26 C244,26 254,48 284,42 C304,38 312,30 320,28 L320,110 L0,110 Z" fill="url(#g1)"/>
+                <path class="mock__line" d="M0,86 C34,86 44,52 74,52 C104,52 112,74 142,68 C176,61 184,26 214,26 C244,26 254,48 284,42 C304,38 312,30 320,28" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="mock__rows">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="float float--a">
+        <span class="float__k">Design system</span>
+        <span class="float__v">128 components</span>
+      </div>
+      <div class="float float--b">
+        <span class="float__k">Prototype</span>
+        <span class="float__v">Clickable, end-to-end</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─────────────────────────  MARQUEE  ───────────────────────── -->
+<section class="marquee" aria-label="What we work on">
+  <div class="marquee__track">
+    <div class="marquee__group">
+      <span>Analytics dashboards</span><i>✳</i>
+      <span>Admin panels</span><i>✳</i>
+      <span>Onboarding flows</span><i>✳</i>
+      <span>Data tables</span><i>✳</i>
+      <span>Billing &amp; permissions</span><i>✳</i>
+      <span>Reporting</span><i>✳</i>
+      <span>Design systems</span><i>✳</i>
+      <span>Settings &amp; empty states</span><i>✳</i>
+    </div>
+    <div class="marquee__group" aria-hidden="true">
+      <span>Analytics dashboards</span><i>✳</i>
+      <span>Admin panels</span><i>✳</i>
+      <span>Onboarding flows</span><i>✳</i>
+      <span>Data tables</span><i>✳</i>
+      <span>Billing &amp; permissions</span><i>✳</i>
+      <span>Reporting</span><i>✳</i>
+      <span>Design systems</span><i>✳</i>
+      <span>Settings &amp; empty states</span><i>✳</i>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────  ABOUT  ───────────────────────── -->
+<section class="section" id="about">
+  <div class="wrap">
+    <header class="sec-head sec-head--left reveal">
+      <p class="eyebrow">About</p>
+      <h2>A small studio for B2B&nbsp;products.</h2>
+    </header>
+
+    <div class="about">
+      <p class="about__lead reveal">
+        We design dashboards, admin tools and the dense screens people use all day.
+        Wireframes through to a clickable prototype your engineers can build from.
+      </p>
+      <div class="about__points">
+        <div class="about__point reveal">
+          <h3>Senior designers only</h3>
+          <p>The person on the call is the person doing the work.</p>
+        </div>
+        <div class="about__point reveal" style="--d:80ms">
+          <h3>One flat monthly fee</h3>
+          <p>No scoping calls, no change requests, no long contracts.</p>
+        </div>
+        <div class="about__point reveal" style="--d:160ms">
+          <h3>Built to be built</h3>
+          <p>We design to your stack, not to a portfolio shot.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────  SERVICES  ───────────────────────── -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="framed mesh reveal">
+      <div class="framed__inner">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Services</p>
+      <h2>Four deliverables.</h2>
+      <p class="sec-head__sub">
+        Every project includes all four. You always know what you're getting.
+      </p>
+    </header>
+
+    <div class="cards">
+      <article class="card reveal">
+        <span class="card__num">01</span>
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 9h18M9 9v12"/>
+          </svg>
+        </div>
+        <h3>Wireframes</h3>
+        <p>
+          Layout and structure for every screen, before any visual design.
+        </p>
+        <ul class="card__list">
+          <li>Screen inventory</li>
+          <li>User flows</li>
+          <li>Empty, loading and error states</li>
+        </ul>
+      </article>
+
+      <article class="card reveal" style="--d:80ms">
+        <span class="card__num">02</span>
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="7.5" cy="7.5" r="4"/><circle cx="16.5" cy="16.5" r="4"/><path d="M16.5 3.5h4v4M3.5 16.5h4v4"/>
+          </svg>
+        </div>
+        <h3>Design system</h3>
+        <p>
+          Tokens, components and rules in Figma, built to match your code.
+        </p>
+        <ul class="card__list">
+          <li>Colour, type and spacing tokens</li>
+          <li>Component library</li>
+          <li>Usage guidelines</li>
+        </ul>
+      </article>
+
+      <article class="card reveal" style="--d:160ms">
+        <span class="card__num">03</span>
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M7 20h10M8 9l2.5 2.5L8 14M13 14h3"/>
+          </svg>
+        </div>
+        <h3>Hi-fi UI</h3>
+        <p>
+          Finished screens with real data, at the density your users actually see.
+        </p>
+        <ul class="card__list">
+          <li>Every screen and breakpoint</li>
+          <li>Light and dark</li>
+          <li>Accessible contrast</li>
+        </ul>
+      </article>
+
+      <article class="card reveal" style="--d:240ms">
+        <span class="card__num">04</span>
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 3.5v17l5.5-4.5 3 6 2.5-1.2-2.8-5.8H20L5 3.5Z"/>
+          </svg>
+        </div>
+        <h3>Prototype</h3>
+        <p>
+          A clickable prototype you can test with users or demo in a sales call.
+        </p>
+        <ul class="card__list">
+          <li>Real navigation</li>
+          <li>Key interactions</li>
+          <li>Ready to test</li>
+        </ul>
+      </article>
+    </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────  PROCESS  ───────────────────────── -->
+<section class="section section--alt" id="process">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Process</p>
+      <h2>How it works.</h2>
+      <p class="sec-head__sub">
+        You add requests, we work through them one at a time. Most come back in
+        48 hours.
+      </p>
+    </header>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <span class="step__no">1</span>
+        <div>
+          <h3>Get started</h3>
+          <p>
+            You subscribe, give us product access and add us to Slack. We spend the
+            first day learning your product.
+          </p>
+          <span class="step__time">Day one</span>
+        </div>
+      </li>
+      <li class="step reveal" style="--d:80ms">
+        <span class="step__no">2</span>
+        <div>
+          <h3>Add your requests</h3>
+          <p>
+            Put what you need on a shared board. Reorder it whenever your priorities
+            change.
+          </p>
+          <span class="step__time">Ongoing</span>
+        </div>
+      </li>
+      <li class="step reveal" style="--d:160ms">
+        <span class="step__no">3</span>
+        <div>
+          <h3>We deliver</h3>
+          <p>
+            One request at a time. Most come back within 48 hours. Bigger ones get split
+            into pieces you can review daily.
+          </p>
+          <span class="step__time">~48 hours</span>
+        </div>
+      </li>
+      <li class="step reveal" style="--d:240ms">
+        <span class="step__no">4</span>
+        <div>
+          <h3>Review or pause</h3>
+          <p>
+            Revisions are included. Pause the subscription any month you don't need us,
+            and pick it up later.
+          </p>
+          <span class="step__time">Any time</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ─────────────────────────  PRICING  ───────────────────────── -->
+<section class="section section--alt" id="engage">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Pricing</p>
+      <h2>One plan. $3,000 a&nbsp;month.</h2>
+      <p class="sec-head__sub">
+        No guesswork on pricing and no scoping calls. Cancel or pause whenever you like.
+      </p>
+    </header>
+
+    <div class="offer reveal">
+      <div class="offer__main">
+        <h3>What's included</h3>
+        <p class="offer__pitch">
+          One senior designer working on your product, month to month.
+        </p>
+
+        <ul class="offer__list">
+          <li>
+            <strong>Unlimited requests</strong>
+            Add as many as you like. We work on one at a time.
+          </li>
+          <li>
+            <strong>48-hour turnaround</strong>
+            Most requests come back within two days.
+          </li>
+          <li>
+            <strong>All four deliverables</strong>
+            Wireframes, design system, hi-fi UI and prototypes.
+          </li>
+          <li>
+            <strong>Direct contact</strong>
+            You talk to the designer, not an account manager.
+          </li>
+          <li>
+            <strong>You own the files</strong>
+            Figma files are yours from day one.
+          </li>
+          <li>
+            <strong>Pause any month</strong>
+            Freeze it when you don't need us. Nothing is lost.
+          </li>
+        </ul>
+      </div>
+
+      <aside class="offer__rail mesh">
+        <span class="offer__tag">Flat monthly</span>
+        <p class="offer__amount">$3,000<span>/month</span></p>
+        <p class="offer__note">
+          The same price every month.
+        </p>
+        <a class="btn btn--primary btn--full btn--lg" href="#contact">Enquire</a>
+        <p class="offer__fine">No contract · No setup fee · Cancel anytime</p>
+        <p class="offer__compare">
+          Less than a third of what a senior hire costs, and available now.
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────  CONTACT  ───────────────────────── -->
+<section class="section contact mesh" id="contact">
+  <div class="wrap contact__inner">
+
+    <div class="contact__copy reveal">
+      <p class="eyebrow eyebrow--light">Contact</p>
+      <h2>Get in touch.</h2>
+      <p class="contact__sub">
+        Tell us about your product. We reply to every enquiry within one business day.
+      </p>
+
+      <ul class="contact__points">
+        <li><span aria-hidden="true">✳</span> Reply within 1 business day</li>
+        <li><span aria-hidden="true">✳</span> A 30-minute call</li>
+        <li><span aria-hidden="true">✳</span> $3,000 a month, cancel anytime</li>
+      </ul>
+
+      <p class="contact__direct">
+        Prefer email?<br />
+        <a href="mailto:hello@cozy.studio" id="direct-email">hello@cozy.studio</a>
+      </p>
+    </div>
+
+    <form class="form reveal" id="contact-form" novalidate>
+      <div class="form__row">
+        <div class="field">
+          <label for="name">Your name <span aria-hidden="true">*</span></label>
+          <input type="text" id="name" name="name" autocomplete="name" placeholder="Alex Rivera" required />
+          <p class="field__err" data-err-for="name"></p>
+        </div>
+        <div class="field">
+          <label for="email">Work email <span aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="alex@company.com" required />
+          <p class="field__err" data-err-for="email"></p>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="company">Company <span aria-hidden="true">*</span></label>
+        <input type="text" id="company" name="company" autocomplete="organization" placeholder="Company name" required />
+        <p class="field__err" data-err-for="company"></p>
+      </div>
+
+      <!-- honeypot: hidden from humans, catches naive bots -->
+      <div class="hp" aria-hidden="true">
+        <label for="company_website">Leave this field empty</label>
+        <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <button type="submit" class="btn btn--primary btn--lg btn--full" id="submit-btn">
+        Send enquiry
+      </button>
+
+      <p class="form__note">
+        We'll only use this to reply to you.
+      </p>
+
+      <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+
+  </div>
+</section>
+
+<!-- ─────────────────────────  FAQ  ───────────────────────── -->
+<section class="section" id="faq">
+  <div class="wrap wrap--narrow">
+    <header class="sec-head sec-head--left reveal">
+      <p class="eyebrow">FAQ</p>
+      <h2>Common questions.</h2>
+    </header>
+
+    <div class="faq">
+      <details class="faq__item reveal">
+        <summary>Why is there no client work on the site?</summary>
+        <div class="faq__body">
+          <p>
+            We're a new studio, so we're not showing client work yet. Instead we'll walk
+            you through how we work and scope a small first project, so you can judge the
+            work rather than a portfolio page.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__item reveal">
+        <summary>Do you work with early-stage teams?</summary>
+        <div class="faq__body">
+          <p>
+            Yes. Pre-seed to Series B is our focus. If you're pre-product, we'll start
+            with one core flow.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__item reveal">
+        <summary>Can you work with our existing design system?</summary>
+        <div class="faq__body">
+          <p>
+            Yes. We'll audit what you have, extend it where it's thin and fix the parts
+            that have drifted from your code.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__item reveal">
+        <summary>What do you need from us?</summary>
+        <div class="faq__body">
+          <p>
+            Product access, one person who can make decisions, and about two hours a week
+            for reviews.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__item reveal">
+        <summary>Do you write front-end code?</summary>
+        <div class="faq__body">
+          <p>
+            No. We design to your stack, write specs your engineers can build from, and
+            stay available during the build.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__item reveal">
+        <summary>How do we start?</summary>
+        <div class="faq__body">
+          <p>
+            Fill in the form above. We reply within one business day and set up a
+            30-minute call.
+          </p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ─────────────────────────  FOOTER  ───────────────────────── -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <div class="footer__brand">
+      <a class="logo logo--footer" href="#top">
+        <span class="logo__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="10" fill="currentColor"/><path d="M16 8.5c-4.1 0-7.5 3.4-7.5 7.5s3.4 7.5 7.5 7.5c2.5 0 4.7-1.2 6-3.1l-3.1-1.9a4 4 0 1 1 0-5l3.1-1.9a7.5 7.5 0 0 0-6-3.1Z" fill="#1A1714"/></svg>
+        </span>
+        <span class="logo__text">Cozy<span class="logo__thin">Studio</span></span>
+      </a>
+      <p>Product design for B2B SaaS companies.</p>
+    </div>
+
+    <nav class="footer__col" aria-label="Studio">
+      <h4>Studio</h4>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#engage">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <nav class="footer__col" aria-label="Contact">
+      <h4>Get in touch</h4>
+      <a href="#contact">Start a project</a>
+      <a href="mailto:hello@cozy.studio">hello@cozy.studio</a>
+      <a href="#" data-social="linkedin">LinkedIn</a>
+      <a href="#" data-social="x">X / Twitter</a>
+      <a href="studio.html">Alternate design</a>
+      <a href="v3.html">Third design</a>
+      <a href="v4.html">Fourth design</a>
+    </nav>
+  </div>
+
+  <div class="wrap footer__base">
+    <p>© <span id="year">2026</span> Cozy Studio. All rights reserved.</p>
+    <p class="footer__made">Product design for B2B SaaS.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
