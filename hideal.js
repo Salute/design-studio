@@ -9,7 +9,7 @@
    client with everything filled in. Paste a JSON endpoint
    (Formspree, Basin, Getform, Netlify…) for real submissions.
    ───────────────────────────────────────────────────────── */
-const STUDIO_EMAIL  = "hello@hideal.com";
+const STUDIO_EMAIL  = "oguzhannakyoll+design@gmail.com";
 const FORM_ENDPOINT = "";
 
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
