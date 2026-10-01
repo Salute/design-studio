@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hideal: Product design for B2B SaaS</title>
-<meta name="description" content="Hideal is a product design studio for B2B SaaS. We deliver wireframes, design systems, hi-fi UI and clickable prototypes for dashboards and complex tools." />
+<title>Hideal: Product design and front-end for B2B SaaS</title>
+<meta name="description" content="Hideal is a product design studio for B2B SaaS. We design dashboards and complex tools, then ship the front-end to production in your codebase." />
 <meta name="theme-color" content="#FDFDFC" />
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Hideal: Product design for B2B SaaS" />
-<meta property="og:description" content="Wireframes, design systems, hi-fi UI and prototypes for dashboards and complex B2B tools." />
+<meta property="og:title" content="Hideal: Product design and front-end for B2B SaaS" />
+<meta property="og:description" content="Wireframes, design systems and hi-fi UI for dashboards and complex B2B tools, shipped to production in your codebase." />
 <meta property="og:image" content="assets/og.png" />
 <meta name="twitter:card" content="summary_large_image" />
 
@@ -65,7 +65,7 @@
 
   <p class="lede">
     Dashboards, admin tools and the data-heavy screens your customers live in.
-    Wireframes through to clickable prototypes, for a flat monthly fee.
+    Designed in Figma and shipped to production, for a flat monthly fee.
   </p>
 
   <div class="cta">
@@ -275,20 +275,62 @@
         <p>Finished screens with real data, at the density your users actually see.</p>
       </li>
 
-      <!-- Prototype: a tap on one screen, a link drawn to the next -->
+      <!-- Live code: a pull request is opened and merged, and the
+           chart it adds appears in the live app behind it -->
       <li class="card" style="--cd:1.2s">
         <div class="card__art" aria-hidden="true">
-          <span class="art proto">
-            <span class="fr fr--a" style="--d:0s"></span>
-            <span class="tap"></span>
-            <svg class="proto__link" viewBox="0 0 100 12" preserveAspectRatio="none">
-              <path d="M2 6 H88 M80 1.6 L88.5 6 L80 10.4" />
-            </svg>
-            <span class="fr fr--b" style="--d:.9s"></span>
+          <span class="ship">
+            <span class="ship__app">
+              <span class="ship__bar">
+                <span class="ship__dot"></span><span class="ship__dot"></span><span class="ship__dot"></span>
+                <span class="ship__url"></span>
+                <span class="ship__live"><span class="ship__pulse"></span>Live</span>
+              </span>
+              <span class="ship__deploy"></span>
+              <span class="ship__body">
+                <span class="ship__rail">
+                  <span class="ship__nav ship__nav--on"></span>
+                  <span class="ship__nav"></span>
+                  <span class="ship__nav"></span>
+                </span>
+                <span class="ship__main">
+                  <span class="ship__head"><span class="ship__title"></span><span class="ship__btn"></span></span>
+                  <span class="ship__chart">
+                    <svg viewBox="0 0 200 60" preserveAspectRatio="none">
+                      <defs>
+                        <linearGradient id="shg" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#2480ED" stop-opacity=".26"/>
+                          <stop offset="100%" stop-color="#2480ED" stop-opacity="0"/>
+                        </linearGradient>
+                      </defs>
+                      <path class="ship__area" d="M0,48 C22,48 30,28 48,28 C66,28 72,40 92,37 C114,33 120,14 140,14 C160,14 166,26 186,23 C194,22 197,18 200,17 L200,60 L0,60 Z" fill="url(#shg)"/>
+                      <path class="ship__line" d="M0,48 C22,48 30,28 48,28 C66,28 72,40 92,37 C114,33 120,14 140,14 C160,14 166,26 186,23 C194,22 197,18 200,17" fill="none" stroke="#2480ED" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <span class="ship__rows"><span></span><span></span></span>
+                </span>
+              </span>
+            </span>
+            <!-- the pull request: checks run, it gets merged -->
+            <span class="pr">
+              <span class="pr__top">
+                <svg class="pr__icon" viewBox="0 0 16 16"><circle cx="4" cy="3.5" r="1.7"/><circle cx="4" cy="12.5" r="1.7"/><circle cx="12" cy="12.5" r="1.7"/><path d="M4 5.2v5.6M12 10.8V6.5a2 2 0 0 0-2-2H7.4M8.9 3 7.4 4.5 8.9 6"/></svg>
+                <span class="pr__title">Add revenue chart</span>
+              </span>
+              <span class="pr__checks">
+                <span class="ck ck--run"><span class="ck__spin"></span>Running checks</span>
+                <span class="ck ck--ok"><svg viewBox="0 0 12 12"><path d="M3 6.2 5 8.2 9 4"/></svg>All checks passed</span>
+              </span>
+              <span class="pr__foot">
+                <span class="pr__state"><i class="st st--open">Open</i><i class="st st--merged">Merged</i></span>
+                <span class="pr__btn">Merge</span>
+              </span>
+              <svg class="pr__cursor" viewBox="0 0 12 16"><path d="M1 1v12.5l3.2-3 2.3 5 2-.9-2.2-4.9H10.5z"/></svg>
+            </span>
           </span>
         </div>
-        <h3>Prototype</h3>
-        <p>A clickable prototype you can test with users or demo in a sales call.</p>
+        <h3>Live code</h3>
+        <p>Built in your codebase and shipped as pull requests your engineers review and merge.</p>
       </li>
 
     </ul>
@@ -305,7 +347,7 @@
       <li>
         <h3>Get started</h3>
         <p>
-          You subscribe, give us product access and add us to Slack. We spend the
+          You subscribe, give us product and repo access and add us to Slack. We spend the
           first day learning your product.
         </p>
       </li>
@@ -319,7 +361,7 @@
       <li>
         <h3>We deliver</h3>
         <p>
-          One request at a time. Bigger ones get split into pieces you can review
+          One request at a time, as designs or as pull requests to your app. Bigger ones get split into pieces you can review
           daily.
         </p>
       </li>
@@ -338,7 +380,7 @@
     <h2>One plan</h2>
     <p>
       No guesswork on pricing and no scoping calls. Cancel or pause whenever you like.
-      One senior designer working on your product, month to month.
+      One senior designer who also ships code, working on your product, month to month.
     </p>
 
     <!-- the plan as a card: a tinted panel holding what the price
@@ -349,6 +391,7 @@
         <ul class="plan__list">
           <li><svg class="plan__check" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9"/><path d="M5.9 10.4 8.6 13l5.5-5.7"/></svg>No setup fee</li>
           <li><svg class="plan__check" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9"/><path d="M5.9 10.4 8.6 13l5.5-5.7"/></svg>Cancel anytime</li>
+          <li><svg class="plan__check" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9"/><path d="M5.9 10.4 8.6 13l5.5-5.7"/></svg>Design and front-end included</li>
         </ul>
       </div>
 
@@ -455,8 +498,19 @@
       <summary>Do you write front-end code?</summary>
       <div class="qa__body">
         <p>
-          No. We design to your stack, write specs your engineers can build from, and
-          stay available during the build.
+          Yes. We work in your repo, build the UI in your stack and open pull requests
+          your engineers review and merge. If you'd rather build it yourselves, we'll
+          hand off Figma files and specs instead.
+        </p>
+      </div>
+    </details>
+
+    <details class="qa">
+      <summary>Is it safe to let you into our codebase?</summary>
+      <div class="qa__body">
+        <p>
+          We work on branches and never push to main. Every change goes through your
+          normal review and CI, and your team decides what merges.
         </p>
       </div>
     </details>
@@ -473,7 +527,7 @@
   </section>
 
   <footer class="foot">
-    <p>Product design for B2B SaaS companies.</p>
+    <p>Product design and front-end for B2B SaaS companies.</p>
     <p class="foot__meta">
       <a href="#" data-social="linkedin">LinkedIn</a>
       <span aria-hidden="true">·</span>
