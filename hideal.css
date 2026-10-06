@@ -212,6 +212,90 @@ code{
   color:var(--body);
 }
 
+/* ---- sticker: a die-cut vinyl sticker hovering over the demo's
+   top-right corner. White cut-line border, orange face, a soft
+   cast shadow and a gloss band; it lands with a slap and sits
+   at a slight tilt. */
+.demo{ position:relative; }
+
+.sticker{
+  --tilt:-7deg;
+  position:absolute; top:-26px; right:-18px; z-index:5;
+  cursor:default;
+  display:block;
+  padding:3px;                          /* the white die-cut edge */
+  border-radius:14px;
+  background:#fff;
+  transform:rotate(var(--tilt));
+  box-shadow:
+    0 0 0 .5px rgba(0,0,0,.06),
+    0 1px 1px rgba(0,0,0,.08),
+    0 4px 8px -2px rgba(120,40,0,.18),
+    0 14px 24px -10px rgba(120,40,0,.32);
+  transition:transform .22s cubic-bezier(.3,1.6,.5,1), box-shadow .22s ease;
+  animation:sticker-slap .55s cubic-bezier(.2,1.4,.4,1) .25s both;
+}
+.sticker:hover{
+  text-decoration:none;
+  transform:rotate(calc(var(--tilt) + 3deg)) translateY(-2px) scale(1.04);
+  box-shadow:
+    0 0 0 .5px rgba(0,0,0,.06),
+    0 2px 2px rgba(0,0,0,.08),
+    0 8px 14px -4px rgba(120,40,0,.22),
+    0 22px 32px -12px rgba(120,40,0,.36);
+}
+
+.sticker__face{
+  position:relative;
+  display:flex; flex-direction:column; align-items:center;
+  padding:8px 14px 9px;
+  border-radius:11px;
+  overflow:hidden;
+  color:#fff;
+  background:
+    radial-gradient(120% 90% at 20% 0%, #FF8A3D 0%, transparent 60%),
+    linear-gradient(160deg, #FF6B1A 0%, #F24E00 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.35),
+    inset 0 -2px 4px rgba(150,40,0,.25);
+}
+/* gloss: a diagonal sheen that sweeps once after it lands */
+.sticker__face::after{
+  content:"";
+  position:absolute; inset:-40% auto -40% -60%;
+  width:45%;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent);
+  transform:skewX(-20deg);
+  animation:sticker-gloss 1s ease .85s both;
+  pointer-events:none;
+}
+
+.sticker__top{
+  font-family:var(--mono);
+  font-size:10px; font-weight:600;
+  line-height:1.2;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+  opacity:.85;
+}
+.sticker__main{
+  font-size:16px; font-weight:750;
+  line-height:1.15;
+  letter-spacing:-.4px;
+  white-space:nowrap;
+  text-shadow:0 1px 0 rgba(150,40,0,.35);
+}
+
+@keyframes sticker-slap{
+  0%  { opacity:0; transform:rotate(calc(var(--tilt) - 14deg)) scale(1.6); }
+  60% { opacity:1; transform:rotate(calc(var(--tilt) + 2deg)) scale(.94); }
+  100%{ opacity:1; transform:rotate(var(--tilt)) scale(1); }
+}
+@keyframes sticker-gloss{
+  from{ left:-60%; }
+  to  { left:130%; }
+}
+
 /* the phrase carried in the studio's own colour */
 .hl{ color:var(--accent); }
 
@@ -1367,6 +1451,8 @@ a.btn{ color:#fff; text-decoration:none; }
    ============================================================ */
 @media (max-width:560px){
   h1{ font-size:27px; }
+  /* no room beside the headline: it sits above it instead */
+  .sticker{ top:-24px; right:-10px; --tilt:-5deg; }
   .nav__in{ padding:10px 20px; gap:12px; }
   .nav__links{ gap:13px; }
   .cta{ flex-wrap:wrap; gap:8px 12px; }
