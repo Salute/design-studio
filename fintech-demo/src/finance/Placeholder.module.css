@@ -1,0 +1,12 @@
+.root { display: grid; justify-items: start; gap: 12px; padding-top: 32px; }
+.mark { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 8px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); color: var(--foreground); box-shadow: var(--shadow-resting); }
+.title { margin: 0; font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 500; letter-spacing: var(--tracking-display); line-height: var(--leading-display); }
+.blurb { max-width: 46ch; margin: 0; color: var(--text-secondary); font-size: var(--text-lg); }
+.ghosts { display: grid; gap: 8px; width: 100%; margin-top: 24px; }
+.ghost { height: 56px; border-radius: var(--radius-panel); background: linear-gradient(90deg, var(--surface-muted), color-mix(in oklab, var(--surface-muted) 40%, transparent)); animation: breathe 1.6s var(--ease-in-out) infinite alternate; }
+.ghost:nth-child(2) { width: 88%; } .ghost:nth-child(3) { width: 94%; } .ghost:nth-child(4) { width: 72%; }
+@keyframes breathe { from { opacity: .55; } to { opacity: 1; } }
+.soon { margin: 16px 0 0; color: var(--text-muted); font-size: var(--text-sm); }
+.back { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; color: var(--foreground); text-decoration: none; }
+@media (hover: hover) and (pointer: fine) { .back:hover { text-decoration: underline; text-underline-offset: 3px; } }
+@media (prefers-reduced-motion: reduce) { .ghost { animation: none; } }

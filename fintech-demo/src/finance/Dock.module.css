@@ -1,0 +1,63 @@
+/* Black in both themes, like Pulse's dock. */
+.dock { position: fixed; bottom: max(20px, env(safe-area-inset-bottom)); left: 50%; z-index: 10; translate: -50% 0; max-width: calc(100vw - 24px); }
+.tray {
+  --dock-plate: oklch(16% 0 0);
+  --dock-ink: oklch(97% 0 0);
+  --dock-ink-muted: oklch(72% 0 0);
+  --dock-hover: oklch(100% 0 0 / .08);
+  --dock-on: oklch(100% 0 0 / .13);
+  display: flex; align-items: center; gap: 2px; padding: 4px; border: 1px solid oklch(100% 0 0 / .06); border-radius: var(--radius-control);
+  background: var(--dock-plate); box-shadow: var(--shadow-floating), inset 0 1px 0 oklch(100% 0 0 / .06); color: var(--dock-ink-muted);
+}
+:global(:root[data-theme="dark"]) .tray { --dock-plate: oklch(11% 0 0); border-color: oklch(100% 0 0 / .1); }
+
+.item, .ask {
+  position: relative; display: inline-flex; flex: none; align-items: center; height: 36px; min-width: 36px; margin: 0; padding: 0 10px; border: 0; border-radius: 13px;
+  background: transparent; color: inherit; font: inherit; font-size: var(--text-sm); font-weight: 500; line-height: 1; text-decoration: none; white-space: nowrap; cursor: pointer;
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation; isolation: isolate;
+  transition: color var(--duration-instant) var(--ease-standard), background-color var(--duration-instant) var(--ease-standard), transform var(--duration-spring) var(--ease-spring);
+}
+.item:active, .ask:active { transform: scale(.96); transition-duration: var(--duration-instant); }
+.item[data-current] { color: var(--dock-ink); }
+@media (hover: hover) and (pointer: fine) {
+  .item:not([data-current]):hover, .ask:hover { background: var(--dock-hover); color: var(--dock-ink); }
+}
+.item:focus-visible, .ask:focus-visible { --focus-outline: oklch(100% 0 0 / .5); --focus-outline-offset: -2px; }
+
+/* The plate behind the current page. It travels between items with layoutId. */
+.plate { position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--dock-on); box-shadow: inset 0 1px 0 oklch(100% 0 0 / .06); }
+.icon { display: grid; place-items: center; width: 16px; height: 16px; }
+.labelClip { display: inline-block; overflow: hidden; }
+.label { display: inline-block; padding-left: 7px; padding-right: 2px; }
+
+.rule { flex: none; width: 1px; height: 18px; margin-inline: 4px; border-radius: 1px; background: oklch(100% 0 0 / .14); }
+
+/* Ask Cove: the AI entry point. A slow light runs round its sparkle while Cove is answering. */
+.ask { gap: 7px; padding-inline: 10px 12px; color: var(--dock-ink); overflow: hidden; }
+.askGlow { position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: radial-gradient(120% 140% at 0% 50%, color-mix(in oklab, var(--accent) 38%, transparent), transparent 60%); opacity: .55; transition: opacity var(--duration-standard) var(--ease-standard); }
+@media (hover: hover) and (pointer: fine) { .ask:hover .askGlow { opacity: .9; } }
+.ask[data-asking] .askGlow, .ask[data-open] .askGlow { opacity: 1; }
+.ask[data-open] { background: var(--dock-on); }
+.sparkWrap { position: relative; display: grid; place-items: center; }
+/* Unseen insights: a small count on the sparkle, ringed in the dock colour so it reads as sitting on top. */
+.count { position: absolute; top: -7px; right: -9px; display: grid; min-width: 15px; height: 15px; place-items: center; padding: 0 4px; border-radius: var(--radius-pill); background: var(--accent); box-shadow: 0 0 0 2px var(--dock-plate); color: oklch(99% 0 0); font-size: 10px; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1; }
+.spark { color: color-mix(in oklab, var(--accent) 55%, white); transition: transform var(--duration-spring) var(--ease-spring); }
+@media (hover: hover) and (pointer: fine) { .ask:hover .spark { transform: rotate(18deg) scale(1.08); } }
+.ask[data-asking] .spark { animation: twinkle 1.2s var(--ease-in-out) infinite alternate; }
+@keyframes twinkle { from { opacity: .55; transform: scale(.92); } to { opacity: 1; transform: scale(1.08) rotate(12deg); } }
+
+/* Phones: a full-width tab bar. Every page gets an equal, 44px-tall target and the bar never changes width, so it never shifts
+   sideways between pages. The current page drops its label: the plate and the bright icon mark it, and the page title names it. */
+@media (max-width: 560px) {
+  .dock { left: 16px; right: 16px; translate: none; max-width: none; bottom: max(12px, env(safe-area-inset-bottom)); }
+  .tray { gap: 0; padding: 4px; }
+  .item, .ask { flex: 1 1 0; justify-content: center; min-width: 0; height: 44px; padding: 0; border-radius: 14px; }
+  .labelClip { display: none; }
+  .rule { margin-inline: 2px; }
+  .ask > span:last-child { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .item, .ask, .spark { transition: color var(--duration-instant) linear, background-color var(--duration-instant) linear; }
+  .item:active, .ask:active { transform: none; }
+  .ask[data-asking] .spark { animation: none; }
+}

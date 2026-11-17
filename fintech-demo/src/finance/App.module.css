@@ -1,0 +1,35 @@
+.page { width: 100%; max-width: 1060px; margin-inline: auto; padding: 16px clamp(16px, 4vw, 24px) 140px; }
+/* Room for the tab bar, so the last row of a page can scroll clear of it. */
+@media (max-width: 560px) { .page { padding-bottom: calc(110px + env(safe-area-inset-bottom)); } }
+.view { display: grid; gap: 24px; margin-top: 24px; }
+.view > * { min-width: 0; }
+
+/* Entrance transforms leave each region its own stacking context, so the header (which opens menus) sits above the page. */
+.header { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 56px; }
+.brand { display: flex; min-width: 0; align-items: center; gap: 6px; }
+.logoLink { display: grid; place-items: center; border-radius: 12px; color: var(--foreground); transition: transform var(--duration-spring) var(--ease-spring); }
+.logoLink:active { transform: scale(.95); }
+.logo { flex: none; }
+.slash { flex: none; margin: 0 2px 0 4px; color: var(--border-strong); font-size: 22px; font-weight: 300; line-height: 1; user-select: none; }
+/* The company switcher drops its pill while closed: no border, no shadow, no fill, so it reads as part of the brand rather than as a filter.
+   Hover gives it a soft tint; once open it takes Arc's full surface back. Arc's parts are matched by class name because they are module-scoped. */
+.switcher [class*="shape"] { background: transparent; box-shadow: none; }
+.switcher [class*="shape"]::after { border-color: transparent; }
+.switcher [class*="trigger"] { padding-left: 8px; font-size: var(--text-base); }
+@media (hover: hover) and (pointer: fine) {
+  .switcher:not([data-open]) [class*="shape"]:hover { background: color-mix(in oklab, var(--foreground) 5%, transparent); }
+  .switcher:not([data-open]) [class*="shape"]:hover::after { border-color: transparent; }
+}
+.switcher[data-open] [class*="shape"] { background: var(--surface-raised); box-shadow: var(--shadow-floating); }
+.switcher[data-open] [class*="shape"]::after { border-color: var(--border); }
+.tools { display: flex; flex: none; align-items: center; gap: 8px; }
+.workspaceMark { display: grid; place-items: center; width: 20px; height: 20px; border-radius: 7px; background: var(--foreground); color: var(--background); font-family: var(--font-display); font-size: 11px; font-weight: 600; line-height: 1; }
+/* The page's one primary action carries the accent, like Pulse's trial button. */
+.primary { gap: 6px; background: var(--accent); border-color: var(--accent); color: var(--accent-foreground); }
+:root[data-theme="dark"] .primary { color: oklch(16% 0 0); }
+
+@media (max-width: 560px) {
+  .primary { padding-inline: 12px; }
+  .primary { font-size: 0; gap: 0; }
+  .primary svg { width: 18px; height: 18px; }
+}

@@ -1,0 +1,29 @@
+.list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; margin: -6px -10px; padding: 0; list-style: none; }
+.row { --tone: var(--series-1); display: grid; gap: 8px; padding: 10px 10px 8px; border-radius: 14px; outline-offset: -2px; transition: background-color var(--duration-fast) var(--ease-standard); }
+.row[data-tone="near"] { --tone: var(--warning); }
+.row[data-tone="over"] { --tone: var(--danger); }
+@media (hover: hover) and (pointer: fine) { .row:hover { background: color-mix(in oklab, var(--foreground) 3%, transparent); } }
+.row:focus-visible { background: color-mix(in oklab, var(--foreground) 3%, transparent); }
+.line { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.name { display: inline-flex; min-width: 0; align-items: center; gap: 8px; overflow: hidden; color: var(--foreground); font-size: var(--text-sm); text-overflow: ellipsis; white-space: nowrap; }
+.flag { padding: 1px 7px; border-radius: var(--radius-pill); background: color-mix(in oklab, var(--tone) 12%, transparent); color: var(--tone); font-size: 11px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.detail { display: inline-grid; justify-items: end; color: var(--text-secondary); font-size: var(--text-sm); font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* Both readings share one cell, so the cell keeps the wider width and nothing moves. Hover or focus crossfades them, and a quick
+   in-and-out reverses mid-way because these are transitions, not keyframes. */
+.detail > * { grid-area: 1 / 1; transition: opacity var(--duration-fast) var(--ease-standard), transform var(--duration-standard) var(--ease-enter), filter var(--duration-fast) var(--ease-standard); }
+.left { color: var(--foreground); opacity: 0; transform: translateY(5px); filter: blur(2px); }
+.detail[data-open] .total { opacity: 0; transform: translateY(-5px); filter: blur(2px); }
+.detail[data-open] .left { opacity: 1; transform: none; filter: none; }
+.row[data-tone="over"] .detail { color: var(--foreground); }
+
+.track { position: relative; height: 6px; border-radius: var(--radius-pill); background: color-mix(in oklab, var(--foreground) 7%, transparent); }
+.fill { position: absolute; inset: 0; border-radius: inherit; background: var(--tone); transform-origin: left; }
+/* Where spend should be today. It fades in once the fills have started. */
+.pace { position: absolute; top: -3px; bottom: -3px; width: 2px; margin-left: -1px; border-radius: 1px; background: var(--foreground); box-shadow: 0 0 0 2px var(--surface); opacity: 0; transition: opacity var(--duration-considered) var(--ease-standard) .5s; }
+.pace[data-shown] { opacity: .55; }
+
+
+@media (prefers-reduced-motion: reduce) {
+  .row, .pace { transition: none; }
+  .detail > * { transition: opacity var(--duration-fast) linear; transform: none !important; filter: none !important; }
+}

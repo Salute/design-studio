@@ -1,0 +1,28 @@
+.chart { margin-top: 8px; }
+
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+
+/* Vendor bars, like Pulse's page list. */
+.bars { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; margin: 0; padding: 0; list-style: none; }
+.bar { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 40px; padding: 0 12px 0 10px; border-radius: 12px; font-size: var(--text-sm); isolation: isolate; outline-offset: -2px; }
+.barFill { position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: color-mix(in oklab, var(--series-1) 10%, transparent); transform-origin: left; transition: background-color var(--duration-fast) var(--ease-standard); }
+@media (hover: hover) and (pointer: fine) { .bar:hover .barFill { background: color-mix(in oklab, var(--series-1) 16%, transparent); } }
+.barLabel { display: inline-flex; min-width: 0; align-items: center; gap: 10px; overflow: hidden; color: var(--foreground); text-overflow: ellipsis; white-space: nowrap; }
+.barCategory { color: var(--text-muted); }
+.barValue { display: inline-flex; flex: none; align-items: baseline; gap: 10px; color: var(--foreground); font-variant-numeric: tabular-nums; }
+/* The change only shows on hover or focus: it is detail, not headline. */
+.barChange { color: var(--text-muted); font-size: var(--text-xs); opacity: 0; transform: translateX(4px); filter: blur(2px); transition: opacity var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard), filter var(--duration-fast) var(--ease-standard); }
+.barChange[data-tone="up"] { color: var(--danger); }
+.barChange[data-tone="down"] { color: var(--success); }
+.bar:focus-visible .barChange { opacity: 1; transform: none; filter: none; }
+@media (hover: hover) and (pointer: fine) { .bar:hover .barChange { opacity: 1; transform: none; filter: none; } }
+@media (hover: none) { .barChange { opacity: 1; transform: none; filter: none; } }
+
+@media (max-width: 760px) {
+  .grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .barCategory { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .barChange { transition: none; }
+}

@@ -1,0 +1,80 @@
+.root { display: grid; gap: 24px; }
+.root > * { min-width: 0; }
+
+/* Page row: what you are looking at on the left, how to look at it on the right. */
+.toolbar { position: relative; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 16px; }
+.title { display: flex; min-width: 0; align-items: baseline; gap: 10px; margin: 0; font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 500; letter-spacing: var(--tracking-display); line-height: var(--leading-display); }
+/* The meta swaps in place; the grid cell lets the old and new text overlap without moving the title. */
+.meta { display: inline-grid; color: var(--text-muted); font-family: var(--font-body); font-size: var(--text-base); font-weight: 400; letter-spacing: var(--tracking-body); white-space: nowrap; }
+.meta > * { grid-area: 1 / 1; }
+.controls { display: flex; min-width: 0; align-items: center; gap: 8px; }
+
+/* Pill-sized menu trigger: the height, padding and resting shadow of the dropdowns beside it. */
+.pillMenu { display: inline-flex; flex: none; }
+.pillMenu > button { box-sizing: border-box; height: var(--control-height-md); min-height: 0; padding: 0 12px 0 14px; border-radius: calc(var(--control-height-md) / 2); box-shadow: var(--shadow-resting); }
+
+/* Arc's search field, reshaped into the toolbar's pill. */
+.search { display: block; width: 240px; min-width: 0; }
+.search label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.search > div { gap: 0; }
+.search [class*="shell"] { height: var(--control-height-md); min-height: 0; padding: 0 10px 0 14px; border-color: var(--border); border-radius: calc(var(--control-height-md) / 2); box-shadow: var(--shadow-resting); }
+@media (hover: hover) and (pointer: fine) { .search [class*="shell"]:hover:not(:focus-within) { border-color: var(--border-strong); } }
+.search [class*="shell"]:focus-within { border-color: color-mix(in oklab, var(--accent) 50%, var(--border)); box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 10%, transparent); }
+
+/* Stats: quiet labels over tabular numbers, a badge underneath. */
+.stats { position: relative; display: flex; flex-wrap: wrap; gap: 8px 24px; margin-inline: -12px; }
+.stat { display: grid; justify-items: start; gap: 2px; min-width: 132px; margin: 0; padding: 8px 12px 10px; border: 0; border-radius: var(--radius-panel); background: transparent; color: var(--foreground); font: inherit; text-align: left; cursor: default; }
+.stat[data-interactive] { cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background-color var(--duration-fast) var(--ease-standard), transform 160ms var(--ease-enter); }
+.stat[data-interactive]:active { transform: scale(.97); }
+@media (hover: hover) and (pointer: fine) { .stat[data-interactive]:hover { background: color-mix(in oklab, var(--foreground) 4%, transparent); } }
+/* A filter that is on keeps a quiet tint, so the row reads as the list's filters. */
+.stat[data-kind="filter"][aria-pressed="true"] { background: color-mix(in oklab, var(--accent) 9%, transparent); }
+.stat[data-kind="filter"][aria-pressed="true"] .statLabel { color: var(--foreground); }
+@media (hover: hover) and (pointer: fine) { .stat[data-kind="filter"][aria-pressed="true"]:hover { background: color-mix(in oklab, var(--accent) 12%, transparent); } }
+.statLabel { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: var(--text-base); transition: color var(--duration-fast) var(--ease-standard), opacity 160ms ease; }
+/* Legend swatches draw a short sample of each line: solid for spent, dotted for forecast, dashed for budget. Off, they fade to grey. */
+.swatch { width: 14px; height: 0; border-top: 2.5px solid color-mix(in oklab, var(--foreground) 18%, transparent); border-radius: 2px; transition: border-color var(--duration-standard) var(--ease-standard); }
+.swatch[data-series="forecast"] { border-top-style: dotted; border-top-width: 3px; }
+.swatch[data-series="budget"] { border-top-style: dashed; border-top-width: 2px; }
+.swatch[data-series="spent"][data-on] { border-top-color: var(--series-1); }
+.swatch[data-series="forecast"][data-on] { border-top-color: color-mix(in oklab, var(--series-1) 65%, transparent); }
+.swatch[data-series="budget"][data-on] { border-top-color: color-mix(in oklab, var(--foreground) 45%, transparent); }
+/* A stat that jumps to a panel shows an arrow on hover, so it does not read as a switch. */
+.jump { color: var(--text-muted); opacity: 0; transform: translateY(-3px); transition: opacity 160ms var(--ease-enter), transform 160ms var(--ease-enter); }
+@media (hover: hover) and (pointer: fine) { .stat:hover .jump { opacity: 1; transform: none; } }
+@media (hover: none) { .jump { opacity: .6; transform: none; } }
+.stat:focus-visible .jump { opacity: 1; transform: none; }
+.statValue { display: inline-grid; font-size: var(--text-lg); font-variant-numeric: tabular-nums; line-height: 1.5; transition: opacity 160ms ease; }
+.statValue > * { grid-area: 1 / 1; }
+/* Opacity, not visibility: the counter's digits set their own visibility and would show through. */
+.statValue[data-reading] .rest { opacity: 0; }
+.statValue span { font-family: inherit; font-size: inherit; font-weight: 400; letter-spacing: inherit; line-height: inherit; }
+.plain { font-variant-numeric: tabular-nums; }
+.stat[data-dim] .statLabel, .stat[data-dim] .statValue { opacity: .4; }
+.statChange { min-height: 24px; transition: opacity var(--duration-fast) var(--ease-standard), filter var(--duration-fast) var(--ease-standard); }
+.statChange[data-hidden] { opacity: 0; filter: blur(2px); }
+.reading { position: absolute; right: 12px; bottom: 12px; display: flex; align-items: center; gap: 8px; margin: 0; color: var(--text-secondary); font-size: var(--text-sm); font-variant-numeric: tabular-nums; }
+/* Same tag as the chart tooltip, so the row and the chart agree on what is projected. */
+.forecastTag { padding: 1px 7px; border-radius: var(--radius-pill); background: color-mix(in oklab, var(--series-1) 12%, transparent); color: var(--series-1); font-size: var(--text-xs); font-weight: 500; opacity: 0; transform: scale(.94); transition: opacity 150ms var(--ease-enter), transform 150ms var(--ease-enter); }
+.forecastTag[data-shown] { opacity: 1; transform: none; }
+
+.noResults { display: grid; justify-items: start; gap: 10px; padding: 28px 4px; color: var(--text-secondary); font-size: var(--text-sm); }
+.noResults p { margin: 0; }
+.reset { height: 32px; padding: 0 12px; border: 1px solid var(--border); border-radius: var(--radius-pill); background: var(--surface); color: var(--foreground); font: inherit; font-size: var(--text-sm); cursor: pointer; transition: border-color var(--duration-fast) var(--ease-standard), transform 160ms var(--ease-enter); }
+.reset:active { transform: scale(.97); }
+@media (hover: hover) and (pointer: fine) { .reset:hover { border-color: var(--border-strong); } }
+
+@media (max-width: 760px) {
+  .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 8px; }
+  .stat { min-width: 0; }
+  .reading { position: static; grid-column: 1 / -1; padding-inline: 12px; }
+}
+@media (max-width: 560px) {
+  .controls { width: 100%; justify-content: space-between; }
+  .search { flex: 1; width: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stat, .swatch, .statChange, .jump, .forecastTag, .reset { transition: none; }
+  .jump { transform: none; }
+  .stat[data-interactive]:active, .reset:active { transform: none; }
+}

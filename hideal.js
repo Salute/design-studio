@@ -282,3 +282,4 @@ form.addEventListener("submit", async (e) => {
     submitBtn.textContent = "Send enquiry";
   }
 });
+
