@@ -1474,3 +1474,42 @@ a.btn{ color:#fff; text-decoration:none; }
   .win__bar *,
   .win__body *{ animation:none !important; }
 }
+
+/* ============================================================
+   WORK: a portfolio thumbnail in a browser window, linking to
+   the live app full screen
+   ============================================================ */
+.work{ display:block; margin-top:18px; color:inherit; }
+.work:hover{ text-decoration:none; }
+.work__win{
+  display:block;
+  transition:box-shadow .2s ease, transform .2s ease;
+}
+/* the address bar shares the hero demo's classes, but holds still here */
+.work .win__bar *{ animation:none; }
+.work__img{
+  display:block; width:100%; height:auto;
+  background:#fff;
+}
+.work__meta{
+  display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+  margin-top:10px;
+  font-size:13px;
+}
+.work__name{ font-weight:500; color:var(--strong); }
+.work__kind{ margin-left:6px; font-weight:400; color:var(--muted); }
+.work__open{
+  display:inline-flex; align-items:center; gap:4px;
+  color:var(--link); white-space:nowrap;
+}
+.work__open svg{
+  width:10px; height:10px;
+  fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round;
+}
+@media (hover:hover) and (pointer:fine){
+  .work:hover .work__win{
+    transform:translateY(-2px);
+    box-shadow:0 1px 2px rgba(0,0,0,.03), 0 14px 32px -14px rgba(0,0,0,.18);
+  }
+  .work:hover .work__open{ text-decoration:underline; text-underline-offset:2px; }
+}

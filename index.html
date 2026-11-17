@@ -43,6 +43,7 @@
 
     <nav class="nav__links" aria-label="Sections">
       <a class="nav__link" href="#deliverables" data-spy="deliverables">About</a>
+      <a class="nav__link" href="#work" data-spy="work">Work</a>
       <a class="nav__link" href="#pricing" data-spy="pricing">Pricing</a>
       <a class="nav__link" href="#contact" data-spy="contact">Get in touch</a>
     </nav>
@@ -341,6 +342,37 @@
       </li>
 
     </ul>
+  </section>
+
+  <!-- ─────────────────────  WORK  ─────────────────────
+       A portfolio piece: a thumbnail of the Cove finance app that opens
+       the live app full screen. The app is built from fintech-demo/
+       (npm run build:cove) into work/cove/.
+       ───────────────────────────────────────────────── -->
+  <section id="work" class="is-ruled">
+    <h2>Work <span class="tag">live demo</span></h2>
+    <p>
+      Cove, a budget management app for finance teams. A concept piece we designed
+      and built end to end to show the kind of work we do. Open it and click around,
+      it's the real app.
+    </p>
+
+    <a class="work" href="work/cove/finance/" target="_blank" rel="noopener">
+      <span class="win work__win">
+        <span class="win__bar" aria-hidden="true">
+          <span class="win__dot"></span><span class="win__dot"></span><span class="win__dot"></span>
+          <span class="win__url">cove</span>
+        </span>
+        <img class="work__img" src="assets/work/cove.png" width="1200" height="760" loading="lazy"
+             alt="Cove's overview screen: quarter spend against budget, a forecast chart, approvals and budgets by category" />
+      </span>
+      <span class="work__meta">
+        <span class="work__name">Cove <span class="work__kind">Budget management</span></span>
+        <span class="work__open">Open the live app
+          <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5h5v5M9.5 2.5 3 9"/></svg>
+        </span>
+      </span>
+    </a>
   </section>
 
   <!-- ─────────────────────  PROCESS  ───────────────────── -->

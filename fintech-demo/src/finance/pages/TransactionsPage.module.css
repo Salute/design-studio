@@ -1,0 +1,71 @@
+.panel { gap: 8px; padding-top: 10px; }
+
+.group { display: grid; gap: 2px; }
+.group + .group { margin-top: 14px; }
+.groupHead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 10px 0 6px; border-bottom: 1px solid var(--border-subtle); margin-bottom: 4px; }
+.groupTitle { display: flex; align-items: baseline; gap: 8px; margin: 0; color: var(--foreground); font-size: var(--text-sm); font-weight: 500; }
+.groupTitle span { color: var(--text-muted); font-weight: 400; }
+.groupTotal { color: var(--text-secondary); font-size: var(--text-sm); font-variant-numeric: tabular-nums; }
+
+.list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; margin: 0 -10px; padding: 0; list-style: none; }
+.row { display: grid; width: 100%; grid-template-columns: auto minmax(0, 1fr) 170px 130px 110px 16px; align-items: center; gap: 14px; min-height: 56px; margin: 0; padding: 6px 10px; border: 0; border-radius: 14px; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background-color 150ms ease, transform 160ms var(--ease-enter); outline-offset: -2px; }
+.row:active { transform: scale(.99); }
+.row[data-open] { background: color-mix(in oklab, var(--accent) 8%, transparent); }
+@media (hover: hover) and (pointer: fine) { .row:hover { background: color-mix(in oklab, var(--foreground) 3.5%, transparent); } .row[data-open]:hover { background: color-mix(in oklab, var(--accent) 10%, transparent); } }
+.what { display: grid; min-width: 0; }
+.vendor { color: var(--foreground); font-size: var(--text-sm); font-weight: 500; white-space: nowrap; }
+.sub { overflow: hidden; color: var(--text-muted); font-size: var(--text-xs); text-overflow: ellipsis; white-space: nowrap; }
+.person { display: grid; color: var(--text-secondary); font-size: var(--text-sm); white-space: nowrap; }
+.card { color: var(--text-muted); font-size: var(--text-xs); font-variant-numeric: tabular-nums; }
+.statusCell { display: grid; justify-items: start; }
+.statusCell > * { grid-area: 1 / 1; }
+.amount { color: var(--foreground); font-size: var(--text-sm); font-variant-numeric: tabular-nums; text-align: right; }
+/* The chevron says the row opens something; it slides a touch on hover. */
+.chevron { color: var(--text-muted); opacity: .5; transition: opacity 150ms ease, transform 160ms var(--ease-enter); }
+@media (hover: hover) and (pointer: fine) { .row:hover .chevron { opacity: 1; transform: translateX(2px); } }
+
+.chip { display: inline-flex; align-items: center; gap: 4px; height: 24px; padding: 0 9px; border-radius: var(--radius-pill); background: var(--surface-muted); color: var(--text-secondary); font-size: var(--text-xs); font-weight: 500; white-space: nowrap; }
+.chip[data-status="cleared"] { background: color-mix(in oklab, var(--success) 11%, transparent); color: var(--success); }
+.chip[data-status="pending"] { background: color-mix(in oklab, var(--series-1) 11%, transparent); color: var(--series-1); }
+.chip[data-status="receipt"] { background: color-mix(in oklab, var(--warning) 13%, transparent); color: var(--warning); }
+
+/* Drawer */
+.detail { display: grid; gap: 24px; }
+.hero { display: flex; align-items: center; gap: 14px; }
+.hero > div { display: grid; justify-items: start; gap: 6px; }
+.heroAmount { margin: 0; font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 500; letter-spacing: var(--tracking-display); line-height: 1; font-variant-numeric: tabular-nums; }
+.facts { display: grid; margin: 0; border-top: 1px solid var(--border); }
+.facts > div { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 48px; border-bottom: 1px solid var(--border); }
+.facts dt { color: var(--text-muted); }
+.facts dd { margin: 0; color: var(--foreground); text-align: right; }
+.factSelect dd { display: flex; justify-content: flex-end; }
+.factSelect { min-height: 56px !important; }
+
+.receipt { display: grid; }
+.receipt > * { grid-area: 1 / 1; }
+.receiptEmpty { display: grid; justify-items: center; gap: 10px; padding: 22px 16px; border: 1.5px dashed var(--border-strong); border-radius: var(--radius-panel); color: var(--text-muted); text-align: center; }
+.receiptEmpty p { margin: 0; color: var(--text-secondary); }
+.receiptCard { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border: 1px solid var(--border); border-radius: var(--radius-panel); background: var(--surface); color: var(--text-secondary); }
+.receiptCard > span { display: grid; flex: 1; min-width: 0; }
+.receiptCard b { overflow: hidden; color: var(--foreground); font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
+.receiptCard > span > span { color: var(--text-muted); font-size: var(--text-xs); }
+.receiptCheck { color: var(--success); }
+
+.sectionTitle { margin: 0 0 10px; color: var(--foreground); font-size: var(--text-sm); font-weight: 500; }
+.timeline { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.timeline li { position: relative; display: grid; grid-template-columns: 20px minmax(0, 1fr); padding-bottom: 14px; color: var(--text-muted); }
+.timeline li::before { position: absolute; top: 14px; bottom: -2px; left: 4.5px; width: 1px; background: var(--border); content: ""; }
+.timeline li:last-child::before { display: none; }
+.dot { width: 10px; height: 10px; margin-top: 4px; border: 2px solid var(--border-strong); border-radius: 50%; background: var(--surface-raised); transition: background-color 200ms ease, border-color 200ms ease; }
+.timeline li[data-done] .dot { border-color: var(--success); background: var(--success); }
+.eventLabel { grid-column: 2; color: var(--text-secondary); }
+.timeline li[data-done] .eventLabel { color: var(--foreground); }
+.eventDetail { grid-column: 2; font-size: var(--text-xs); }
+
+@media (max-width: 760px) {
+  .row { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "mark what amount" "mark what status"; row-gap: 4px; }
+  .row > :first-child { grid-area: mark; }
+  .what { grid-area: what; } .amount { grid-area: amount; } .statusCell { grid-area: status; justify-items: end; }
+  .person, .chevron { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .row, .chevron, .dot { transition: none; } .row:active { transform: none; } }

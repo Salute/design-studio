@@ -1,0 +1,52 @@
+.count { display: inline-grid; min-width: 22px; height: 22px; place-items: center; padding: 0 7px; align-self: center; border-radius: var(--radius-pill); background: var(--accent); color: var(--accent-foreground); font-size: var(--text-xs); font-weight: 600; font-variant-numeric: tabular-nums; transition: background-color var(--duration-standard) var(--ease-standard), color var(--duration-standard) var(--ease-standard); }
+/* Arc's counter paints itself in the page foreground; inside the badge it takes the badge's colour. */
+.count > span { color: inherit; font-family: inherit; font-size: inherit; font-weight: inherit; letter-spacing: 0; line-height: 1; }
+.count[data-empty] { background: var(--surface-muted); color: var(--text-muted); }
+
+.list { display: grid; grid-template-columns: minmax(0, 1fr); margin: -6px -10px; padding: 0; list-style: none; }
+.rowClip { overflow: hidden; }
+.row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "avatar what side" "avatar policy side"; align-items: center; gap: 2px 12px; padding: 10px; border-radius: 16px; transition: background-color 200ms ease; }
+.row > :first-child { grid-area: avatar; align-self: start; margin-top: 2px; }
+@media (hover: hover) and (pointer: fine) { .row:hover { background: color-mix(in oklab, var(--foreground) 3%, transparent); } }
+.row[data-decision="approved"] { background: color-mix(in oklab, var(--success) 7%, transparent); }
+.row[data-decision="declined"] { background: color-mix(in oklab, var(--foreground) 4%, transparent); }
+/* The strike-through is always there in a clear colour, so declining fades it in instead of snapping it on. */
+.item, .amount { text-decoration-line: line-through; text-decoration-color: transparent; }
+.row[data-decision="declined"] .item, .row[data-decision="declined"] .amount { color: var(--text-muted); text-decoration-color: color-mix(in oklab, var(--foreground) 35%, transparent); }
+.what { grid-area: what; min-width: 0; }
+.item { margin: 0; overflow: hidden; color: var(--foreground); font-size: var(--text-sm); font-weight: 500; text-overflow: ellipsis; white-space: nowrap; transition: color 200ms ease, text-decoration-color 200ms ease; }
+.who { margin: 0; overflow: hidden; color: var(--text-muted); font-size: var(--text-xs); text-overflow: ellipsis; white-space: nowrap; }
+.policy { grid-area: policy; justify-self: start; margin-top: 4px; padding: 2px 8px; border-radius: var(--radius-pill); background: var(--surface-muted); color: var(--text-secondary); font-size: 11px; }
+.side { grid-area: side; display: grid; justify-items: end; gap: 6px; }
+.amount { margin: 0; color: var(--foreground); font-size: var(--text-sm); font-variant-numeric: tabular-nums; transition: color 200ms ease, text-decoration-color 200ms ease; }
+.actions { display: grid; min-height: 30px; justify-items: end; align-items: center; }
+.actions > * { grid-area: 1 / 1; }
+.buttons { display: inline-flex; align-items: center; gap: 6px; }
+/* The crossfade: the buttons step back as the result arrives a beat later, with a little blur so the two read as one change. */
+.buttons, .result { transition: opacity 150ms var(--ease-enter), transform 150ms var(--ease-enter), filter 150ms var(--ease-enter); }
+.actions[data-decision] .buttons { opacity: 0; transform: scale(.97); filter: blur(2px); pointer-events: none; }
+.decline, .approve { display: inline-flex; align-items: center; justify-content: center; height: 30px; margin: 0; border: 1px solid var(--border); border-radius: 11px; background: var(--surface); color: var(--text-secondary); font: inherit; font-size: var(--text-xs); font-weight: 500; cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease, transform 160ms var(--ease-enter); }
+.decline { width: 30px; padding: 0; }
+.approve { gap: 5px; padding: 0 11px 0 9px; border-color: var(--foreground); background: var(--foreground); color: var(--background); }
+.decline:active, .approve:active { transform: scale(.97); }
+@media (hover: hover) and (pointer: fine) {
+  .decline:hover { border-color: color-mix(in oklab, var(--danger) 40%, var(--border)); background: color-mix(in oklab, var(--danger) 8%, var(--surface)); color: var(--danger); }
+  .approve:hover { border-color: var(--success); background: var(--success); color: oklch(99% 0 0); }
+}
+:root[data-theme="dark"] .approve:hover { color: oklch(15% 0 0); }
+
+.result { display: inline-flex; align-items: center; gap: 5px; height: 30px; padding: 0 10px; border-radius: 11px; font-size: var(--text-xs); font-weight: 600; opacity: 0; transform: translateY(3px) scale(.97); filter: blur(2px); pointer-events: none; transition-duration: 200ms; transition-delay: 60ms; }
+.actions[data-decision] .result { opacity: 1; transform: none; filter: none; }
+.actions[data-decision="approved"] .result { background: color-mix(in oklab, var(--success) 12%, transparent); color: var(--success); }
+.actions[data-decision="declined"] .result { background: var(--surface-muted); color: var(--text-secondary); }
+.empty { display: flex; align-items: center; gap: 12px; min-height: 72px; padding: 6px 10px; color: var(--text-secondary); font-size: var(--text-sm); }
+.empty b { color: var(--foreground); font-weight: 500; }
+.emptyMark { display: grid; flex: none; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: color-mix(in oklab, var(--success) 12%, transparent); color: var(--success); }
+
+@media (prefers-reduced-motion: reduce) {
+  /* Fewer, gentler: colours and the crossfade's opacity stay, movement and blur go. */
+  .decline:active, .approve:active { transform: none; }
+  .buttons, .result, .actions[data-decision] .buttons { transform: none; filter: none; }
+  .buttons, .result { transition-property: opacity; }
+}
