@@ -27,6 +27,12 @@
   /* accents ------------------------------------------------ */
   --accent:    #E5484D;           /* mark, badges             */
   --link:      #2480ED;           /* in-copy links, pins      */
+  --plan-tint: 235,125,70;        /* warm orange RGB; tints the pricing and contact cards' ring, shadow and checks */
+  --plan-mesh:                    /* warm mesh behind the cards' inner panel: orange, butter, pink */
+    radial-gradient(at 0% 0%,     rgba(255,145,70,.20),  transparent 60%),
+    radial-gradient(at 100% 0%,   rgba(255,215,110,.22), transparent 55%),
+    radial-gradient(at 100% 100%, rgba(240,130,170,.16), transparent 60%),
+    rgba(255,170,110,.04);
 
   /* type --------------------------------------------------- */
   --display: var(--sans);        /* display and body share Inter */
@@ -270,14 +276,6 @@ code{
   pointer-events:none;
 }
 
-.sticker__top{
-  font-family:var(--mono);
-  font-size:10px; font-weight:600;
-  line-height:1.2;
-  letter-spacing:1.4px;
-  text-transform:uppercase;
-  opacity:.85;
-}
 .sticker__main{
   font-size:16px; font-weight:750;
   line-height:1.15;
@@ -1210,16 +1208,16 @@ code{
   margin-top:16px;
   padding:5px 5px 18px;
   border-radius:9px;
-  background:rgba(0,0,0,.014);
-  box-shadow:0 0 0 .5px rgba(0,0,0,.1),
-             0 .5px .5px rgba(0,0,0,.05),
-             0 4px 8px -3px rgba(0,0,0,.06);
+  background:rgba(var(--plan-tint),.025);
+  box-shadow:0 0 0 .5px rgba(var(--plan-tint),.25),
+             0 .5px .5px rgba(var(--plan-tint),.06),
+             0 4px 8px -3px rgba(var(--plan-tint),.10);
 }
 
 .plan__panel{
   padding:15px 16px 17px;
   border-radius:5px;
-  background:rgba(0,0,0,.04);
+  background:var(--plan-mesh);
 }
 .plan__title{
   margin:0 0 11px;
@@ -1243,7 +1241,7 @@ code{
   width:15px; height:15px;
   fill:none;
   stroke:currentColor;
-  color:rgba(0,0,0,.34);
+  color:rgba(var(--plan-tint),.7);
   stroke-linecap:round; stroke-linejoin:round;
 }
 .plan__check circle{ stroke-width:1.3; }
@@ -1277,13 +1275,21 @@ code{
 /* The form reuses the plan card (.plan, .plan__panel, .plan__foot);
    these rules only lay out what sits inside it. */
 .cform{ display:flex; flex-direction:column; }
+/* the contact card stays neutral grey; only the pricing card carries the warm mesh */
+.plan.cform{
+  background:rgba(0,0,0,.014);
+  box-shadow:0 0 0 .5px rgba(0,0,0,.1),
+             0 .5px .5px rgba(0,0,0,.05),
+             0 4px 8px -3px rgba(0,0,0,.06);
+}
+.cform .plan__panel{ background:rgba(0,0,0,.04); }
 .cform__panel{ display:flex; flex-direction:column; gap:12px; }
 .cform__row{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 
 .field{ display:flex; flex-direction:column; gap:5px; }
 .field label{
   font-size:12px; font-weight:500; letter-spacing:-.02px;
-  color:var(--muted);
+  color:var(--ink);
 }
 .field label span{ color:var(--accent); }
 
